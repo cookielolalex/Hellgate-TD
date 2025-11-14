@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>3D Tower Defense</title>
+    <meta name="theme-color" content="#0b1626">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +14,10 @@
 
         <div id="ui">
             <div id="topBar">
+                <div class="resource version">
+                    <span class="label">v</span>
+                    <span id="gameVersion">1.0.0-mobile-iteration</span>
+                </div>
                 <div class="resource">
                     <span class="label">Gold:</span>
                     <span id="gold">500</span>
@@ -21,6 +27,7 @@
                     <span id="wave">1</span>
                 </div>
                 <div class="resource">
+                    <img class="resourceIcon" src="assets/townhall-icon.svg" alt="Base">
                     <span class="label">Health:</span>
                     <span id="health">100</span>
                 </div>
@@ -28,11 +35,11 @@
 
             <div id="buildMenu">
                 <button class="buildBtn" data-type="tower">
-                    <div class="icon">⚓</div>
+                    <img class="icon" src="assets/tower-icon.svg" alt="Tower">
                     <div class="cost">100</div>
                 </button>
                 <button class="buildBtn" data-type="wall">
-                    <div class="icon">🧱</div>
+                    <img class="icon" src="assets/wall-icon.svg" alt="Wall">
                     <div class="cost">50</div>
                 </button>
             </div>
@@ -49,10 +56,48 @@
             <div id="joystick">
                 <div id="joystickHandle"></div>
             </div>
+
+            <div id="structureStatusPanel" class="hidden">
+                <div class="statusHeader">
+                    <span id="statusTitle">Structure Status</span>
+                    <button id="closeStatusPanel" class="closeBtn">×</button>
+                </div>
+                <div class="statusContent">
+                    <p id="statusDescription" class="statusDescription">Select a structure to inspect it.</p>
+                    <div class="statusRow">
+                        <span class="statusLabel">Health:</span>
+                        <span id="statusHealth">-</span>
+                    </div>
+                    <div class="statusRow">
+                        <span class="statusLabel">Attack Damage:</span>
+                        <span id="statusDamage">-</span>
+                    </div>
+                    <div class="statusRow">
+                        <span class="statusLabel">Attack Speed:</span>
+                        <span id="statusSpeed">-</span>
+                    </div>
+                    <div class="statusRow">
+                        <span class="statusLabel">Attack Effect:</span>
+                        <span id="statusEffect">-</span>
+                    </div>
+                    <div class="statusActions">
+                        <button id="upgradeBtn" class="actionBtn">Upgrade (150g)</button>
+                        <button id="demolishBtn" class="actionBtn demolish">Demolish</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <script type="module" src="game.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js').catch(() => {});
+            });
+        }
+    </script>
 </body>
 </html>
 
