@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #04060b;
+    color: #ffffff;
+    overflow: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath fill='%23ffffff' stroke='%23000000' stroke-width='2' d='M5 3l1 32l9-8l6 16l5-2l-6-16l12 2z'/%3E%3C/svg%3E") 0 0, auto;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #1d3557 0%, #102239 100%);
+    cursor: inherit;
+}
+
+#threeCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: radial-gradient(circle at top, rgba(90, 146, 208, 0.35) 0%, rgba(22, 38, 58, 0.9) 70%);
+    cursor: inherit;
+}
+
+#ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+#topBar {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 24px;
+    padding: 12px 24px;
+    background: rgba(22, 36, 56, 0.88);
+    border: 1px solid rgba(160, 190, 240, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    pointer-events: auto;
+}
+
+.resource {
+    color: #f7d76d;
+    font-weight: 600;
+    font-size: 18px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+.resource .label {
+    color: #9db2d7;
+    margin-right: 6px;
+}
+
+#buildMenu {
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    pointer-events: auto;
+}
+
+.buildBtn {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: linear-gradient(150deg, rgba(18, 24, 38, 0.95) 0%, rgba(42, 53, 72, 0.95) 100%);
+    border: 1px solid rgba(146, 190, 255, 0.35);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #e3ecff;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border 0.18s ease;
+}
+
+.buildBtn:hover,
+.buildBtn.active {
+    transform: translateY(-4px) scale(1.04);
+    border-color: #f7d76d;
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.55);
+}
+
+.buildBtn .icon {
+    font-size: 32px;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.45));
+}
+
+.buildBtn .cost {
+    color: #f7d76d;
+    font-weight: 700;
+}
+
+#cameraControls {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 48px);
+    grid-template-rows: repeat(3, 48px);
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.cameraBtn {
+    width: 48px;
+    height: 48px;
+    background: rgba(6, 10, 18, 0.78);
+    border: 1px solid rgba(120, 160, 210, 0.35);
+    border-radius: 10px;
+    color: #e3ecff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease, border 0.15s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
+.cameraBtn:hover {
+    background: rgba(30, 44, 63, 0.9);
+    border-color: rgba(200, 220, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+.cameraBtn:active {
+    transform: translateY(1px) scale(0.96);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+}
+
+#cameraUp {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#cameraDown {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#cameraLeft {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#cameraRight {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#cameraZoomIn {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#cameraZoomOut {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+#joystick {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(6, 10, 18, 0.6);
+    border: 1px solid rgba(120, 160, 210, 0.35);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.45);
+    pointer-events: auto;
+    display: none;
+}
+
+#joystickHandle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 230, 255, 0.9);
+    border: 2px solid rgba(80, 110, 160, 0.45);
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    transition: transform 0.1s ease;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+}
+
+@media (max-width: 900px) {
+    #joystick {
+        display: block;
+    }
+
+    #buildMenu {
+        bottom: 150px;
+    }
+
+    #topBar {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .resource {
+        font-size: 16px;
+    }
+
+    .buildBtn {
+        width: 70px;
+        height: 70px;
+    }
+
+    .cameraBtn {
+        width: 44px;
+        height: 44px;
+    }
+}

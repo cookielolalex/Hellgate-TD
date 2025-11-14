@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>3D Tower Defense</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="threeCanvas"></canvas>
+
+        <div id="ui">
+            <div id="topBar">
+                <div class="resource">
+                    <span class="label">Gold:</span>
+                    <span id="gold">500</span>
+                </div>
+                <div class="resource">
+                    <span class="label">Wave:</span>
+                    <span id="wave">1</span>
+                </div>
+                <div class="resource">
+                    <span class="label">Health:</span>
+                    <span id="health">100</span>
+                </div>
+            </div>
+
+            <div id="buildMenu">
+                <button class="buildBtn" data-type="tower">
+                    <div class="icon">⚓</div>
+                    <div class="cost">100</div>
+                </button>
+                <button class="buildBtn" data-type="wall">
+                    <div class="icon">🧱</div>
+                    <div class="cost">50</div>
+                </button>
+            </div>
+
+            <div id="cameraControls">
+                <button id="cameraUp" class="cameraBtn">↑</button>
+                <button id="cameraDown" class="cameraBtn">↓</button>
+                <button id="cameraLeft" class="cameraBtn">←</button>
+                <button id="cameraRight" class="cameraBtn">→</button>
+                <button id="cameraZoomIn" class="cameraBtn">+</button>
+                <button id="cameraZoomOut" class="cameraBtn">-</button>
+            </div>
+
+            <div id="joystick">
+                <div id="joystickHandle"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="game.js"></script>
+</body>
+</html>
+
