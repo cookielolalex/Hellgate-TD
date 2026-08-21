@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kai'Sa pocket sheet · Taiwan Origins</title>
+  <link rel="icon" href="assets/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#161018; --gold:#8a5a12; --red:#9c1f2a; --blue:#1a5f99; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 12.5px/1.35 "Source Sans 3", "Noto Sans TC", sans-serif; color: var(--ink); background: #fff; }
+    .sheet { max-width: 210mm; margin: 0 auto; padding: 10mm 12mm; }
+    h1 { font-size: 18px; margin: 0 0 2px; }
+    .zh { color: #555; margin: 0 0 8px; }
+    h2 { font-size: 13px; margin: 10px 0 4px; border-bottom: 1px solid #ccc; padding-bottom: 2px; color: var(--red); }
+    .cols { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 10px 16px; }
+    ul, ol { margin: 0; padding-left: 16px; }
+    li { margin: 2px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+    th, td { text-align: left; padding: 2px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
+    .danger { color: var(--red); font-weight: 700; }
+    .ok { color: #1a7a44; font-weight: 700; }
+    .foot { margin-top: 8px; font-size: 10px; color: #666; }
+    .btns { display: flex; gap: 8px; margin: 8px 0 12px; }
+    .btns a { color: var(--gold); }
+    @media print {
+      .btns { display: none; }
+      .sheet { padding: 6mm; }
+      @page { size: A4; margin: 8mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="btns no-print">
+      <a href="index.html">← Full guide</a>
+      <a href="#" onclick="window.print();return false;">Print this page</a>
+      <a href="pdf/kaisa-pocket-cheatsheet.pdf">PDF</a>
+    </div>
+    <h1>Kai'Sa Fury/Mind · Origins pocket sheet</h1>
+    <p class="zh">卡莎 熾烈/靈光 · 台灣起源賽事一頁紙 · 帶去店家，不要帶整本攻略上桌</p>
+
+    <div class="cols">
+      <div>
+        <h2>40-card main (chosen counted)</h2>
+        <table>
+          <tr><th>×</th><th>EN</th><th>繁中</th></tr>
+          <tr><td>2</td><td>Kai'Sa, Survivor</td><td>卡莎，倖存者</td></tr>
+          <tr><td>1</td><td>Legion Rearguard</td><td>軍團後衛</td></tr>
+          <tr><td>1</td><td>Pouty Poro</td><td>呸呸普羅</td></tr>
+          <tr><td>3</td><td>Ravenbloom Student</td><td>拉文布魯姆學生</td></tr>
+          <tr><td>3</td><td>Watchful Sentry</td><td>警覺哨兵</td></tr>
+          <tr><td>3</td><td>Lecturing Yordle</td><td>約德爾教官</td></tr>
+          <tr><td>3</td><td>Noxus Hopeful</td><td>諾克薩斯新兵</td></tr>
+          <tr><td>3</td><td>Darius, Trifarian</td><td>達瑞斯，三鐵衛</td></tr>
+          <tr><td>3</td><td>Thousand-Tailed Watcher</td><td>千尾監視者</td></tr>
+          <tr><td>3</td><td>Cleave</td><td>順劈</td></tr>
+          <tr><td>3</td><td>Hextech Ray</td><td>海克斯射線</td></tr>
+          <tr><td>3</td><td>Retreat</td><td>擇日再戰</td></tr>
+          <tr><td>3</td><td>Stupefy</td><td>震懾</td></tr>
+          <tr><td>3</td><td>Falling Star</td><td>星落</td></tr>
+          <tr><td>1</td><td>Smoke Screen</td><td>煙幕</td></tr>
+          <tr><td>1</td><td>Icathian Rain</td><td>艾卡西亞暴雨</td></tr>
+          <tr><td>1</td><td>Time Warp</td><td>時間扭曲</td></tr>
+        </table>
+        <p>Legend: Kai'Sa, Daughter of the Void 卡莎，虛空之女 · Runes 7 Fury / 5 Mind · Fields: Void Gate 虛空之門, Dreaming Tree 幻夢之樹, Zaun Warrens 祖安地道. 1 Survivor starts Chosen.</p>
+      </div>
+      <div>
+        <h2>Do this every game</h2>
+        <ol>
+          <li>Exhaust legend before recycling a rune for a spell.</li>
+          <li>Spell first, then Hopeful (2E) or Darius (ready 7).</li>
+          <li>Accelerate Survivor only if the lane is winnable. Conquer = draw.</li>
+          <li>Leave Energy up on their turn (Ray / Stupefy / Retreat / Smoke).</li>
+          <li>Close with Accelerated Watcher (−3 all) or Warp at 6 holding two / 7 holding one.</li>
+        </ol>
+        <h2>Scoring (first to 8)</h2>
+        <ul>
+          <li><b>Hold</b> = you already control it at your beginning phase.</li>
+          <li><b>Conquer</b> = you take a field you have not scored this turn.</li>
+          <li>Each field once per turn.</li>
+          <li class="danger">Last point: Hold can win. Conquer for 8 only if you scored every field this turn. Otherwise you draw a card and do not win.</li>
+        </ul>
+        <h2>Mulligan</h2>
+        <ul>
+          <li>Keep: Student + Ray / Yordle / Retreat.</li>
+          <li>Ship: Watcher + Warp + Rain together.</li>
+          <li>Vs Annie/Yi: keep interaction.</li>
+        </ul>
+        <h2>Matchups</h2>
+        <ul>
+          <li><span class="danger">易大師 Yi</span> — worst. Do not empty both lanes. Smoke/Star/Watcher. Warp only if Hold wins.</li>
+          <li><span class="danger">維克特 Viktor</span> — do not 1-for-1 forever. Points now. Rain if he goes wide.</li>
+          <li>安妮 Annie — keep Ray/Stupefy. Stabilize, then you win the long game.</li>
+          <li>卡莎 mirror — Void Gate. Do not tap out of Reactions. Smoke their Darius/Watcher.</li>
+          <li><span class="ok">吉茵珂絲 / 李星</span> — main plan. Save Rain vs Jinx wide.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Table talk · 桌上用語</h2>
+    <table>
+      <tr><th>EN</th><th>說</th><th>EN</th><th>說</th></tr>
+      <tr><td>Hold / Conquer</td><td>佔領 / 征服</td><td>Showdown</td><td>對決</td></tr>
+      <tr><td>Ready / Exhaust</td><td>準備 / 橫置</td><td>Recycle (Power)</td><td>回收符文</td></tr>
+      <tr><td>Accelerate</td><td>加速</td><td>Reaction / Action</td><td>瞬間 / 行動</td></tr>
+      <tr><td>Tank / Deflect</td><td>嘲諷 / 偏折</td><td>Might</td><td>戰力</td></tr>
+      <tr><td>I have a Reaction</td><td>我有瞬間</td><td>Judge, please</td><td>裁判麻煩過來</td></tr>
+    </table>
+
+    <h2>Bag</h2>
+    <p>Legend + chosen + 40 + 3 fields + 12 runes + board · identical opaque sleeves · dice · printed list · ID for 9/19–20 台北矽谷 RQ · water.</p>
+    <p class="foot">Unofficial. Riot / GLORIOUS SOUL own Riftbound. Two Falling Star were added to the pasted 38 so the 40 is legal. Full guide: index.html</p>
+  </div>
+</body>
+</html>
