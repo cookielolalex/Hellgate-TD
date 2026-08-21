@@ -22,17 +22,19 @@
         <span class="brand-sub">Origins · Taiwan playbook</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Guide">
+    <nav class="nav" aria-label="Guide" id="site-nav">
       <a href="#list">List</a>
       <a href="#cards">Cards</a>
       <a href="#play">How to win</a>
+      <a href="#turns">Lines</a>
       <a href="#matchups">Matchups</a>
       <a href="#taiwan">Taiwan prep</a>
-      <a href="#learn">Learn this first</a>
+      <a href="cheat.html">Pocket sheet</a>
     </nav>
     <div class="header-actions">
       <a class="btn ghost" href="pdf/kaisa-origins-taiwan-guide.pdf">Download PDF</a>
-      <a class="btn" href="#cards" data-print>Print cards</a>
+      <a class="btn" href="cheat.html">Pocket sheet</a>
+      <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-controls="site-nav">☰</button>
     </div>
   </header>
 
@@ -42,7 +44,7 @@
       <p class="kicker">Unofficial player study sheets · Origins constructed</p>
       <h1>Win Taiwan with<br><span>Kai'Sa, Survivor</span></h1>
       <p class="zh">卡莎起源賽事手冊 · 牌面辨識、打法、對局與賽前裝備</p>
-      <p class="lede">Your Hellgate tower-defense files are gone. This is the working document for the 40-card Fury/Mind Kai'Sa list: original study cards for every name in the paste, the lines that actually close games, the Origins legends that steal rounds, and a packing list for the first Traditional Chinese events.</p>
+      <p class="lede">Fury/Mind Kai'Sa for Taiwan Origins: study cards for every name in the list, the five lines that close games, the legends that steal rounds, and a one-page sheet you can actually take to a Skirmish.</p>
       <div class="hero-pills">
         <span class="pill">Legend: Kai'Sa, Daughter of the Void</span>
         <span class="pill">Chosen Champion: Kai'Sa, Survivor</span>
@@ -375,6 +377,64 @@
       </div>
     </section>
 
+    <section id="turns">
+      <h2>Five lines to memorize</h2>
+      <p class="zh-h">五條固定連招 · 能量算清楚再動手</p>
+      <div class="grid-2">
+        <article class="panel seq">
+          <h3>1. Legion Hopeful</h3>
+          <ol>
+            <li><b>1.</b> Hextech Ray or Cleave</li>
+            <li><b>2.</b> Exhaust legend for the spell Power</li>
+            <li><b>3.</b> Noxus Hopeful for 2 Energy, 4 Might</li>
+          </ol>
+          <p class="note">If you play Hopeful first, you pay 4 and waste Legion. Same window as Darius: the cheap card is always first.</p>
+        </article>
+        <article class="panel seq">
+          <h3>2. Ready Darius</h3>
+          <ol>
+            <li><b>1.</b> 1-cost spell (Ray / Cleave / Stupefy)</li>
+            <li><b>2.</b> Darius — trigger +2 Might and Ready</li>
+            <li><b>3.</b> Conquer at 7</li>
+          </ol>
+          <p class="note">Darius played as the first card of the turn sits exhausted at 5. That is a brick. Count “second card” out loud.</p>
+        </article>
+        <article class="panel seq">
+          <h3>3. Survivor loop</h3>
+          <ol>
+            <li><b>1.</b> Accelerate Survivor (4E + 1E + 1 Fury Power)</li>
+            <li><b>2.</b> Conquer, draw</li>
+            <li><b>3.</b> If they win the swing-back: Retreat, channel 1 exhausted rune, recast later</li>
+          </ol>
+          <p class="note">Do not Accelerate into a ready bigger body with no spell backup. An empty lane is the green light.</p>
+        </article>
+        <article class="panel seq">
+          <h3>4. Watcher two-for</h3>
+          <ol>
+            <li><b>1.</b> Play Watcher, pay Accelerate (7E + 1E + 1 Mind Power)</li>
+            <li><b>2.</b> Enemy units −3 Might (min 1)</li>
+            <li><b>3.</b> Conquer field A, send a second attacker at field B</li>
+          </ol>
+          <p class="note">The shrink lasts the rest of the turn. This is how you take two fields in one go without Time Warp.</p>
+        </article>
+        <article class="panel seq">
+          <h3>5. Time Warp wins</h3>
+          <ol>
+            <li><b>A.</b> You are at 6 and Hold two fields → Warp → both Holds for 8</li>
+            <li><b>B.</b> You are at 7, Hold one field → Warp → that Hold is 8</li>
+            <li><b>C.</b> You Conquer to 7, cannot legally take 8 from the other field → Warp into the Hold</li>
+          </ol>
+          <p class="note">10 Energy + 4 Mind Power, then this card banishes. Ask if they have a deny (Wind Wall / Calm) before you tap the runes. If they do, you just spent your turn and your closer.</p>
+        </article>
+        <article class="panel seq">
+          <h3>Scoring traps</h3>
+          <div class="score-box"><div class="pts">7→8</div><div>You Conquer the last empty field but did not score the other one this turn. That is <strong>not</strong> a win. You draw a card. Hold next turn, or score both fields this turn, or Warp.</div></div>
+          <div class="score-box"><div class="pts">6</div><div>Holding two fields at the start of your turn is already two points (8). You do not need to attack. If you are at 6 and only Hold one, you still need another score.</div></div>
+          <div class="score-box"><div class="pts">Rain</div><div>Icathian Rain is six separate 2-damage hits (errata). Stack 12 on a fatty or spray a wide board. Do not fire it into a single 3-might unit Hextech Ray already kills.</div></div>
+        </article>
+      </div>
+    </section>
+
     <section id="matchups">
       <h2>Origins matchups to respect</h2>
       <p class="zh-h">起源環境要小心的對局</p>
@@ -465,16 +525,49 @@
       </div>
 
       <div class="panel copy" style="margin-top:16px">
-        <h3>Recommended sideboard for Origins stores</h3>
-        <ul>
-          <li>2 × Smoke Screen — Yi, Sett, enemy Darius, Watcher fights.</li>
-          <li>2 × extra interaction vs gear / artifacts if you own Thermo Beam (Viktor).</li>
-          <li>1–2 × Void Seeker — cantrip 4 damage at a battlefield; extra gas in the mirror.</li>
-          <li>1 × Time Warp — vs ramp and slow control.</li>
-          <li>1 × Mega-Mech or Sprite Mother — vs pure aggro when you need a ready body.</li>
-          <li>1 × Unchecked Power or extra Falling Star — vs Deflect and fat might.</li>
-        </ul>
-        <p>You do not need a perfect 8 before your first Skirmish. You do need the 40 to be legal and sleeved.</p>
+        <h3>Sideboard in / out</h3>
+        <table>
+          <thead>
+            <tr><th>They play</th><th>Bring in</th><th>Cut</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Master Yi</td><td>Smoke Screen, extra Falling Star, Unchecked Power</td><td>Time Warp, Icathian Rain if the table is fast</td></tr>
+            <tr><td>Viktor / gear</td><td>Thermo Beam, extra Falling Star</td><td>Pouty Poro, one Yordle</td></tr>
+            <tr><td>Annie / aggro</td><td>Sprite Mother or Mega-Mech, extra Ray-density if you own Void Seeker</td><td>Time Warp, Watcher #3</td></tr>
+            <tr><td>Mirror Kai'Sa</td><td>Void Seeker, Smoke Screen</td><td>Legion Rearguard, one Sentry</td></tr>
+            <tr><td>Ramp / Volibear</td><td>Second Time Warp</td><td>Poro, Rearguard</td></tr>
+          </tbody>
+        </table>
+        <p>You do not need a perfect 8 before your first Skirmish. You do need the 40 to be legal and sleeved. Print <a href="cheat.html">cheat.html</a> and put it under the playmat.</p>
+      </div>
+    </section>
+
+    <section id="talk">
+      <h2>Table talk in Taiwan</h2>
+      <p class="zh-h">桌上用語 · 對手問「這張做什麼」時要唸得出來</p>
+      <div class="grid-2">
+        <article class="panel">
+          <dl class="talk-grid">
+            <dt>Hold / Conquer</dt><dd>佔領 / 征服</dd>
+            <dt>Showdown</dt><dd>對決</dd>
+            <dt>Ready / Exhaust</dt><dd>準備 / 橫置（橫放）</dd>
+            <dt>Recycle (pay Power)</dt><dd>回收符文（放到符文庫底）</dd>
+            <dt>Accelerate</dt><dd>加速（多付費用，進場準備）</dd>
+            <dt>Reaction / Action</dt><dd>瞬間 / 行動</dd>
+            <dt>Tank / Deflect / Legion / Deathknell</dt><dd>嘲諷 / 偏折 / 軍團 / 亡聲</dd>
+            <dt>Might</dt><dd>戰力</dd>
+          </dl>
+        </article>
+        <article class="panel">
+          <dl class="talk-grid">
+            <dt>I have a Reaction</dt><dd>我有瞬間</dd>
+            <dt>I am scoring Hold</dt><dd>我佔領得分</dd>
+            <dt>This is not the final point — I have not scored the other field</dt><dd>這不是最後一分，另一個戰場這回合還沒得分</dd>
+            <dt>Judge, please</dt><dd>裁判麻煩過來</dd>
+            <dt>English card, Traditional Chinese name</dt><dd>這張是英文，中文名是……</dd>
+            <dt>May I read the errata?</dt><dd>我可以看勘誤嗎？（星落、艾卡西亞暴雨）</dd>
+          </dl>
+        </article>
       </div>
     </section>
 

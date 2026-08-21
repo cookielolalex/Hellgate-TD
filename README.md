@@ -2,7 +2,7 @@
 
 Unofficial Riftbound study site that replaced the Hellgate tower-defense prototype in this repository.
 
-Open `index.html` in a browser. The printable packet with original study-card art lives at `pdf/kaisa-origins-taiwan-guide.pdf`.
+Open `index.html` in a browser. Take `cheat.html` (or `pdf/kaisa-pocket-cheatsheet.pdf`) to the event. The full illustrated packet is `pdf/kaisa-origins-taiwan-guide.pdf`.
 
 ## What is in here
 
