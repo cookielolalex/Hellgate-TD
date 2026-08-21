@@ -34,3 +34,18 @@ if (menuBtn && nav) {
     });
   });
 }
+
+const lightbox = document.createElement("div");
+lightbox.className = "lightbox";
+lightbox.innerHTML = "<img alt=''>";
+document.body.appendChild(lightbox);
+const lightboxImg = lightbox.querySelector("img");
+document.querySelectorAll(".official-card img").forEach((img) => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("open");
+  });
+});
+lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
+

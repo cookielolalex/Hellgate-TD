@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kai'Sa official card faces</title>
+  <style>
+    @page { size: A4 landscape; margin: 8mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Source Sans 3", "Noto Sans TC", sans-serif;
+      background: #07060c; color: #f7f1ff;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .cover {
+      height: 100vh; display: grid; place-items: center;
+      background:
+        radial-gradient(800px 400px at 20% 0%, rgba(155,92,255,.35), transparent 55%),
+        #07060c;
+      page-break-after: always;
+      text-align: center; padding: 24px;
+    }
+    .cover img { width: min(42vh, 280px); border-radius: 16px; box-shadow: 0 20px 50px #000; }
+    h1 { font-size: 42px; margin: 18px 0 6px; font-family: Georgia, serif; }
+    .zh { color: #b7a8c9; }
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px 12px;
+      page-break-after: always;
+      padding: 4px;
+    }
+    .sheet.fields { grid-template-columns: 1fr 1fr 1fr; }
+    figure { margin: 0; }
+    img { width: 100%; height: auto; display: block; border-radius: 8px; }
+    figcaption { text-align: center; color: #f0c36a; font-size: 11px; margin-top: 4px; font-weight: 700; }
+    .note { page-break-after: always; padding: 28px; font-size: 16px; line-height: 1.5; max-width: 70ch; }
+    .note h2 { font-family: Georgia, serif; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <img src="assets/official/kaisa-survivor.jpg" alt="Kai'Sa, Survivor">
+    <h1>Kai'Sa · Origins</h1>
+    <p class="zh">官方牌面 · playriftbound.com Card Gallery</p>
+    <p>Taiwan tournament binder · Fury / Mind</p>
+  </section>
+  <section class="sheet">
+    <figure><img src="assets/official/kaisa-legend.jpg"><figcaption>×1 虛空之女</figcaption></figure>
+    <figure><img src="assets/official/kaisa-survivor.jpg"><figcaption>×2 倖存者</figcaption></figure>
+    <figure><img src="assets/official/legion-rearguard.jpg"><figcaption>×1 軍團後衛</figcaption></figure>
+    <figure><img src="assets/official/pouty-poro.jpg"><figcaption>×1 呸呸普羅</figcaption></figure>
+    <figure><img src="assets/official/ravenbloom-student.jpg"><figcaption>×3 學生</figcaption></figure>
+    <figure><img src="assets/official/watchful-sentry.jpg"><figcaption>×3 哨兵</figcaption></figure>
+    <figure><img src="assets/official/lecturing-yordle.jpg"><figcaption>×3 教官</figcaption></figure>
+    <figure><img src="assets/official/noxus-hopeful.jpg"><figcaption>×3 新兵</figcaption></figure>
+  </section>
+  <section class="sheet">
+    <figure><img src="assets/official/darius-trifarian.jpg"><figcaption>×3 達瑞斯</figcaption></figure>
+    <figure><img src="assets/official/thousand-tailed-watcher.jpg"><figcaption>×3 千尾</figcaption></figure>
+    <figure><img src="assets/official/cleave.jpg"><figcaption>×3 順劈</figcaption></figure>
+    <figure><img src="assets/official/hextech-ray.jpg"><figcaption>×3 射線</figcaption></figure>
+    <figure><img src="assets/official/retreat.jpg"><figcaption>×3 擇日再戰</figcaption></figure>
+    <figure><img src="assets/official/stupefy.jpg"><figcaption>×3 震懾</figcaption></figure>
+    <figure><img src="assets/official/falling-star.jpg"><figcaption>×3 星落</figcaption></figure>
+    <figure><img src="assets/official/smoke-screen.jpg"><figcaption>×1 煙幕</figcaption></figure>
+  </section>
+  <section class="sheet">
+    <figure><img src="assets/official/icathian-rain.jpg"><figcaption>×1 暴雨</figcaption></figure>
+    <figure><img src="assets/official/time-warp.jpg"><figcaption>×1 時間扭曲</figcaption></figure>
+    <figure><img src="assets/official/fury-rune.jpg"><figcaption>×7 熾烈</figcaption></figure>
+    <figure><img src="assets/official/mind-rune.jpg"><figcaption>×5 靈光</figcaption></figure>
+    <figure class=""><img src="assets/official/void-gate.jpg"><figcaption>虛空之門</figcaption></figure>
+    <figure><img src="assets/official/dreaming-tree.jpg"><figcaption>幻夢之樹</figcaption></figure>
+    <figure><img src="assets/official/zaun-warrens.jpg"><figcaption>祖安地道</figcaption></figure>
+  </section>
+  <section class="note">
+    <h2>How this list wins</h2>
+    <p>Spell first, then Hopeful for 2 or Darius ready at 7. Accelerate Survivor only into a winnable lane. Watcher −3 and take two fields. Time Warp at 6 holding two, or 7 holding one. Do not Conquer for point 8 unless you scored every battlefield this turn.</p>
+    <p style="margin-top:12px;color:#b7a8c9">Careful: 易大師, 維克特, 安妮, mirror. Official images © Riot Games from playriftbound.com.</p>
+  </section>
+</body>
+</html>

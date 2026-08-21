@@ -2,7 +2,13 @@
 
 Unofficial Riftbound study site that replaced the Hellgate tower-defense prototype in this repository.
 
-Open `index.html` in a browser. Take `cheat.html` (or `pdf/kaisa-pocket-cheatsheet.pdf`) to the event. The full illustrated packet is `pdf/kaisa-origins-taiwan-guide.pdf`.
+Open **on your phone** (this is an HTML page, not GitHub’s broken PDF viewer):
+
+https://raw.githack.com/cookielolalex/Hellgate-TD/cursor/riftbound-taiwan-guide-036a/cards.html
+
+Pretty card-faces PDF (jsDelivr, works in Safari):
+
+https://cdn.jsdelivr.net/gh/cookielolalex/Hellgate-TD@cursor/riftbound-taiwan-guide-036a/pdf/kaisa-card-faces.pdf
 
 ## What is in here
 
