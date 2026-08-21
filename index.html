@@ -1,103 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>3D Tower Defense</title>
-    <meta name="theme-color" content="#0b1626">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kai'Sa Origins Tournament Guide · Taiwan</title>
+  <meta name="description" content="Unofficial Origins Kai'Sa tournament playbook: card study sheets, how to win with this 40-card list, Origins matchups, and a Taiwan event checklist.">
+  <link rel="icon" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="gameContainer">
-        <canvas id="threeCanvas"></canvas>
-
-        <div id="ui">
-            <div id="topBar">
-                <div class="resource version">
-                    <span class="label">v</span>
-                    <span id="gameVersion">1.0.0-mobile-iteration</span>
-                </div>
-                <div class="resource">
-                    <span class="label">Gold:</span>
-                    <span id="gold">500</span>
-                </div>
-                <div class="resource">
-                    <span class="label">Wave:</span>
-                    <span id="wave">1</span>
-                </div>
-                <div class="resource">
-                    <img class="resourceIcon" src="assets/townhall-icon.svg" alt="Base">
-                    <span class="label">Health:</span>
-                    <span id="health">100</span>
-                </div>
-            </div>
-
-            <div id="buildMenu">
-                <button class="buildBtn" data-type="tower">
-                    <img class="icon" src="assets/tower-icon.svg" alt="Tower">
-                    <div class="cost">100</div>
-                </button>
-                <button class="buildBtn" data-type="wall">
-                    <img class="icon" src="assets/wall-icon.svg" alt="Wall">
-                    <div class="cost">50</div>
-                </button>
-            </div>
-
-            <div id="cameraControls">
-                <button id="cameraUp" class="cameraBtn">↑</button>
-                <button id="cameraDown" class="cameraBtn">↓</button>
-                <button id="cameraLeft" class="cameraBtn">←</button>
-                <button id="cameraRight" class="cameraBtn">→</button>
-                <button id="cameraZoomIn" class="cameraBtn">+</button>
-                <button id="cameraZoomOut" class="cameraBtn">-</button>
-            </div>
-
-            <div id="joystick">
-                <div id="joystickHandle"></div>
-            </div>
-
-            <div id="structureStatusPanel" class="hidden">
-                <div class="statusHeader">
-                    <span id="statusTitle">Structure Status</span>
-                    <button id="closeStatusPanel" class="closeBtn">×</button>
-                </div>
-                <div class="statusContent">
-                    <p id="statusDescription" class="statusDescription">Select a structure to inspect it.</p>
-                    <div class="statusRow">
-                        <span class="statusLabel">Health:</span>
-                        <span id="statusHealth">-</span>
-                    </div>
-                    <div class="statusRow">
-                        <span class="statusLabel">Attack Damage:</span>
-                        <span id="statusDamage">-</span>
-                    </div>
-                    <div class="statusRow">
-                        <span class="statusLabel">Attack Speed:</span>
-                        <span id="statusSpeed">-</span>
-                    </div>
-                    <div class="statusRow">
-                        <span class="statusLabel">Attack Effect:</span>
-                        <span id="statusEffect">-</span>
-                    </div>
-                    <div class="statusActions">
-                        <button id="upgradeBtn" class="actionBtn">Upgrade (150g)</button>
-                        <button id="demolishBtn" class="actionBtn demolish">Demolish</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+  <a class="skip" href="#main">Skip to guide</a>
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <img src="assets/favicon-64.png" alt="">
+      <span>
+        <span class="brand-title">Void Tempo · Kai'Sa</span>
+        <span class="brand-sub">Origins · Taiwan playbook</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Guide">
+      <a href="#list">List</a>
+      <a href="#cards">Cards</a>
+      <a href="#play">How to win</a>
+      <a href="#matchups">Matchups</a>
+      <a href="#taiwan">Taiwan prep</a>
+      <a href="#learn">Learn this first</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn ghost" href="pdf/kaisa-origins-taiwan-guide.pdf">Download PDF</a>
+      <a class="btn" href="#cards" data-print>Print cards</a>
     </div>
+  </header>
 
-    <script type="module" src="game.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js').catch(() => {});
-            });
-        }
-    </script>
+  <header class="hero" id="top">
+    <img class="banner" src="assets/hero-banner.jpg" alt="Tournament hall with void and Noxus banners">
+    <div class="hero-copy">
+      <p class="kicker">Unofficial player study sheets · Origins constructed</p>
+      <h1>Win Taiwan with<br><span>Kai'Sa, Survivor</span></h1>
+      <p class="zh">卡莎起源賽事手冊 · 牌面辨識、打法、對局與賽前裝備</p>
+      <p class="lede">Your Hellgate tower-defense files are gone. This is the working document for the 40-card Fury/Mind Kai'Sa list: original study cards for every name in the paste, the lines that actually close games, the Origins legends that steal rounds, and a packing list for the first Traditional Chinese events.</p>
+      <div class="hero-pills">
+        <span class="pill">Legend: Kai'Sa, Daughter of the Void</span>
+        <span class="pill">Chosen Champion: Kai'Sa, Survivor</span>
+        <span class="pill">Domains: Fury / Mind</span>
+        <span class="pill">First TW Regional Qualifier: 19–20 Sep 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="list">
+      <h2>The 40-card registration list</h2>
+      <p class="zh-h">四十張報名主卡組 · 含選擇英雄區的卡莎</p>
+      <div class="warn">
+        <strong>Count check.</strong> The pasted list is 38 named copies. Constructed registration wants 40 in the main count that includes the Chosen Champion. This guide fills the two missing slots with extra <em>Falling Star</em> (the normal Origins Kai'Sa density). If you meant two other cards, swap those two copies — do not sit down with 38.
+      </div>
+      <div class="grid-4" style="margin-bottom:18px">
+        <div class="stat"><b>40</b> Main + chosen champion</div>
+        <div class="stat"><b>1</b> Legend (not in the 40)</div>
+        <div class="stat"><b>3</b> Battlefields</div>
+        <div class="stat"><b>12</b> Runes · 7 Fury / 5 Mind</div>
+      </div>
+      <div class="panel">
+        <p class="copy">One of the two <strong>Kai'Sa, Survivor</strong> copies starts in the Chosen Champion zone. The 40-card registration count includes it. You still need the legend, three battlefields, twelve runes, and (for Swiss after game one) a sideboard.</p>
+        <table>
+          <thead>
+            <tr><th>Qty</th><th>Code</th><th>Card</th><th>繁中</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2</td><td>OGN-039</td><td>Kai'Sa, Survivor</td><td>卡莎，倖存者</td><td>Chosen + recast body. Accelerate, conquer draw.</td></tr>
+            <tr><td>1</td><td>OGN-010</td><td>Legion Rearguard</td><td>軍團後衛</td><td>Cheap Accelerate opener.</td></tr>
+            <tr><td>1</td><td>OGN-013</td><td>Pouty Poro</td><td>呸呸普羅</td><td>Deflect bait. Tax their removal.</td></tr>
+            <tr><td>3</td><td>OGN-103</td><td>Ravenbloom Student</td><td>拉文布魯姆學生</td><td>Best two-drop. Grows with every spell.</td></tr>
+            <tr><td>3</td><td>OGN-096</td><td>Watchful Sentry</td><td>警覺哨兵</td><td>Deathknell draw. Holds a lane while you spell.</td></tr>
+            <tr><td>3</td><td>OGN-087</td><td>Lecturing Yordle</td><td>約德爾教官</td><td>Tank + immediate draw.</td></tr>
+            <tr><td>3</td><td>OGN-012</td><td>Noxus Hopeful</td><td>諾克薩斯新兵</td><td>Legion 4-might for 2.</td></tr>
+            <tr><td>3</td><td>OGN-027</td><td>Darius, Trifarian</td><td>達瑞斯，三鐵衛</td><td>Second-card pump. Ready 7-might closer.</td></tr>
+            <tr><td>3</td><td>OGN-116</td><td>Thousand-Tailed Watcher</td><td>千尾監視者</td><td>Board shrink + 7-might conquer.</td></tr>
+            <tr><td>3</td><td>OGN-004</td><td>Cleave</td><td>順劈</td><td>Assault +3 on the attack.</td></tr>
+            <tr><td>3</td><td>OGN-009</td><td>Hextech Ray</td><td>海克斯射線</td><td>Action 3 damage on a battlefield unit.</td></tr>
+            <tr><td>3</td><td>OGN-104</td><td>Retreat</td><td>擇日再戰</td><td>Save a body, channel an exhausted rune.</td></tr>
+            <tr><td>3</td><td>OGN-095</td><td>Stupefy</td><td>震懾</td><td>Reaction −1 and draw.</td></tr>
+            <tr><td>3</td><td>OGN-029</td><td>Falling Star</td><td>星落</td><td>Two 3-damage hits. Hits base or battlefield.</td></tr>
+            <tr><td>1</td><td>OGN-093</td><td>Smoke Screen</td><td>煙幕</td><td>Reaction −4. Blowout vs 5–7 might.</td></tr>
+            <tr><td>1</td><td>OGN-248</td><td>Icathian Rain</td><td>艾卡西亞暴雨</td><td>Signature wipe. Six 2-damage hits.</td></tr>
+            <tr><td>1</td><td>OGN-122</td><td>Time Warp</td><td>時間扭曲</td><td>Extra turn. Banishes. Win at 6–7 points.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-3" style="margin-top:18px">
+        <article class="list-block panel">
+          <h3>Legend (required)</h3>
+          <p>1 × <strong>Kai'Sa, Daughter of the Void</strong> · OGN-247 · 卡莎，虛空之女</p>
+          <p>Reaction: exhaust to add 1 Power that can only pay for a spell, any domain. This is why the list is spell-dense. Count this extra power before every showdown.</p>
+        </article>
+        <article class="list-block panel">
+          <h3>Battlefields</h3>
+          <ul>
+            <li><strong>Void Gate</strong> 虛空之門 — spell damage +1. Your home lane.</li>
+            <li><strong>The Dreaming Tree</strong> 幻夢之樹 — spell a friendly unit, draw.</li>
+            <li><strong>Zaun Warrens</strong> 祖安地道 — discard-draw to find Watcher / Warp.</li>
+          </ul>
+          <p>Swap in Reaver's Row if Survivor keeps dying in combat.</p>
+        </article>
+        <article class="list-block panel">
+          <h3>Runes</h3>
+          <ul>
+            <li>7 × Fury Rune 熾烈符文</li>
+            <li>5 × Mind Rune 靈光符文</li>
+          </ul>
+          <p>Power is paid by recycling a matching rune. Accelerate and Time Warp are the expensive power sinks. Do not recycle yourself off the next turn unless the point is the game.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cards">
+      <h2>What they look like</h2>
+      <p class="zh-h">牌面辨識卡 · 原繪練習用，不是官方卡圖</p>
+      <p class="copy">These are unofficial study sheets: original illustrations plus the rules text you need at the table. Official Origins cards are copyright Riot Games / GLORIOUS SOUL. Use these to drill names, costs, and effects; sleeve the real cards for the event.</p>
+      <div class="filters no-print">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="legend">Legend</button>
+        <button class="filter" data-filter="unit">Units</button>
+        <button class="filter" data-filter="spell">Spells</button>
+        <button class="filter" data-filter="field">Battlefields</button>
+      </div>
+      <div class="card-grid">
+        <article class="study-card dual" data-kind="legend">
+          <header><span class="pip cost">L</span><span class="pip might">⚡</span></header>
+          <div class="art"><img src="assets/kaisa-legend.jpg" alt="Kai'Sa, Daughter of the Void"></div>
+          <h3>Kai'Sa, Daughter of the Void</h3>
+          <p class="zh-name">卡莎，虛空之女</p>
+          <p class="meta">OGN-247 · Legend · Fury / Mind</p>
+          <p class="rules">Reaction — Exhaust: add 1 Power that may only be spent to play a spell, of any domain. Activate even on their turn. This is the engine: one extra spell pip every time it is ready.</p>
+          <p class="qty-tag">×1 legend · not in the 40</p>
+        </article>
+
+        <article class="study-card fury" data-kind="unit">
+          <header><span class="pip cost">4</span><span class="pip might">4</span></header>
+          <div class="art"><img src="assets/kaisa-survivor.jpg" alt="Kai'Sa, Survivor"></div>
+          <h3>Kai'Sa, Survivor</h3>
+          <p class="zh-name">卡莎，倖存者</p>
+          <p class="meta">OGN-039 · Champion unit · Fury · Epic</p>
+          <p class="rules"><strong>Accelerate</strong> — you may pay 1 Energy and 1 Fury Power as an additional cost to have her enter ready. When she conquers, draw 1. One copy starts in the Chosen Champion zone. Recast her after Retreat or a hold; do not idle her in base if a battlefield is empty.</p>
+          <p class="qty-tag">×2 · 1 chosen, 1 in deck</p>
+        </article>
+
+        <article class="study-card fury" data-kind="unit">
+          <header><span class="pip cost">2</span><span class="pip might">2</span></header>
+          <div class="art"><img src="assets/legion-rearguard.jpg" alt="Legion Rearguard"></div>
+          <h3>Legion Rearguard</h3>
+          <p class="zh-name">軍團後衛</p>
+          <p class="meta">OGN-010 · Unit · Fury · Common · Trifarian, Noxus</p>
+          <p class="rules"><strong>Accelerate</strong> — pay 1 Energy and 1 Fury Power extra to enter ready. Turn-one or turn-two pressure when you need a body in a lane now. Fine to chump or Cleave.</p>
+          <p class="qty-tag">×1</p>
+        </article>
+
+        <article class="study-card fury" data-kind="unit">
+          <header><span class="pip cost">2</span><span class="pip might">2</span></header>
+          <div class="art"><img src="assets/pouty-poro.jpg" alt="Pouty Poro"></div>
+          <h3>Pouty Poro</h3>
+          <p class="zh-name">呸呸普羅</p>
+          <p class="meta">OGN-013 · Unit · Fury · Common</p>
+          <p class="rules"><strong>Deflect</strong> — opponents must pay extra Power to choose this with a spell or ability. Park it on a battlefield they want to ping. Back it with Cleave or Stupefy rather than spending your own targeted spells into it.</p>
+          <p class="qty-tag">×1</p>
+        </article>
+
+        <article class="study-card mind" data-kind="unit">
+          <header><span class="pip cost">2</span><span class="pip might">2</span></header>
+          <div class="art"><img src="assets/ravenbloom-student.jpg" alt="Ravenbloom Student"></div>
+          <h3>Ravenbloom Student</h3>
+          <p class="zh-name">拉文布魯姆學生</p>
+          <p class="meta">OGN-103 · Unit · Mind · Uncommon</p>
+          <p class="rules">When you play a spell, give this +1 Might this turn. Keep Energy back on their turn so a Hextech Ray or Stupefy turns a 2-might body into a winning showdown. Premier keep in the opener.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card mind" data-kind="unit">
+          <header><span class="pip cost">2</span><span class="pip might">1</span></header>
+          <div class="art"><img src="assets/watchful-sentry.jpg" alt="Watchful Sentry"></div>
+          <h3>Watchful Sentry</h3>
+          <p class="zh-name">警覺哨兵</p>
+          <p class="meta">OGN-096 · Unit · Mind · Common</p>
+          <p class="rules"><strong>Deathknell</strong> — draw 1 when this dies. It is a 1-might placeholder that refunds a card. Use it to occupy a lane, soak, or force them to spend a spell and still give you the draw.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card mind" data-kind="unit">
+          <header><span class="pip cost">3</span><span class="pip might">2</span></header>
+          <div class="art"><img src="assets/lecturing-yordle.jpg" alt="Lecturing Yordle"></div>
+          <h3>Lecturing Yordle</h3>
+          <p class="zh-name">約德爾教官</p>
+          <p class="meta">OGN-087 · Unit · Mind · Common</p>
+          <p class="rules"><strong>Tank</strong> — combat damage is assigned to this first. When you play it, draw 1. The body is small; the card and the Tank tag are why it is a three-of. Cleave it when you must steal a lane.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card fury" data-kind="unit">
+          <header><span class="pip cost">4</span><span class="pip might">4</span></header>
+          <div class="art"><img src="assets/noxus-hopeful.jpg" alt="Noxus Hopeful"></div>
+          <h3>Noxus Hopeful</h3>
+          <p class="zh-name">諾克薩斯新兵</p>
+          <p class="meta">OGN-012 · Unit · Fury · Common · Noxus, Trifarian</p>
+          <p class="rules"><strong>Legion</strong> — this costs 2 less if you have already played another card this turn. Sequence: 1-cost spell, then Hopeful for 2 Energy as a 4-might threat. Same trigger window as Darius.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card fury" data-kind="unit">
+          <header><span class="pip cost">5</span><span class="pip might">5</span></header>
+          <div class="art"><img src="assets/darius-trifarian.jpg" alt="Darius, Trifarian"></div>
+          <h3>Darius, Trifarian</h3>
+          <p class="zh-name">達瑞斯，三鐵衛</p>
+          <p class="meta">OGN-027 · Champion unit · Fury · Rare</p>
+          <p class="rules">When you play your second card in a turn, give Darius +2 Might this turn and ready him. He enters exhausted unless that trigger hits. Pattern: Hextech Ray or Cleave, then Darius, conquer at 7. The +2 drops at end of turn; replay two cards on their turn if you need the pump on defense.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card mind" data-kind="unit">
+          <header><span class="pip cost">7</span><span class="pip might">7</span></header>
+          <div class="art"><img src="assets/thousand-tailed-watcher.jpg" alt="Thousand-Tailed Watcher"></div>
+          <h3>Thousand-Tailed Watcher</h3>
+          <p class="zh-name">千尾監視者</p>
+          <p class="meta">OGN-116 · Unit · Mind · Rare · Ionia</p>
+          <p class="rules"><strong>Accelerate</strong> — 1 Energy and 1 Mind Power extra to enter ready. When you play this, enemy units get −3 Might this turn (minimum 1). The shrink lasts the rest of the turn, so a second attacker can take the other battlefield. This is the cleanest two-point turn in the list.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card fury" data-kind="spell">
+          <header><span class="pip cost">1</span><span class="pip might">A</span></header>
+          <div class="art"><img src="assets/cleave.jpg" alt="Cleave"></div>
+          <h3>Cleave</h3>
+          <p class="zh-name">順劈</p>
+          <p class="meta">OGN-004 · Spell · Fury · Common · Action</p>
+          <p class="rules">Play on your turn or in showdowns. Give a unit <strong>Assault 3</strong> this turn (+3 Might while it is attacking). Turns Student, Poro, or Yordle into a real conquer. Also the cheapest way to trigger Legion / Darius.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card fury" data-kind="spell">
+          <header><span class="pip cost">1</span><span class="pip might">A</span></header>
+          <div class="art"><img src="assets/hextech-ray.jpg" alt="Hextech Ray"></div>
+          <h3>Hextech Ray</h3>
+          <p class="zh-name">海克斯射線</p>
+          <p class="meta">OGN-009 · Spell · Fury · Common · Action</p>
+          <p class="rules">Play on your turn or in showdowns. Deal 3 damage to a unit <em>at a battlefield</em>. Cannot snipe a unit sitting in base. Pay Fury Power; Kai'Sa's legend covers one Power. This is the default answer to 3-might openers.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card mind" data-kind="spell">
+          <header><span class="pip cost">1</span><span class="pip might">R</span></header>
+          <div class="art"><img src="assets/retreat.jpg" alt="Retreat"></div>
+          <h3>Retreat</h3>
+          <p class="zh-name">擇日再戰</p>
+          <p class="meta">OGN-104 · Spell · Mind · Uncommon · Reaction</p>
+          <p class="rules">Play any time, even before spells and abilities resolve. Return a friendly unit to its owner's hand. That owner channels 1 rune exhausted. Save Survivor from a losing showdown, jump a rune toward Watcher, and recast with Accelerate next turn.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card mind" data-kind="spell">
+          <header><span class="pip cost">1</span><span class="pip might">R</span></header>
+          <div class="art"><img src="assets/stupefy.jpg" alt="Stupefy"></div>
+          <h3>Stupefy</h3>
+          <p class="zh-name">震懾</p>
+          <p class="meta">OGN-095 · Spell · Mind · Common · Reaction</p>
+          <p class="rules">Play any time. Give a unit −1 Might this turn, to a minimum of 1. Draw 1. Cantrip combat trick. Tie a showdown, shrink a 4-might blocker, or Stupefy your own unit at Dreaming Tree to draw two.</p>
+          <p class="qty-tag">×3</p>
+        </article>
+
+        <article class="study-card fury" data-kind="spell">
+          <header><span class="pip cost">2</span><span class="pip might">S</span></header>
+          <div class="art"><img src="assets/falling-star.jpg" alt="Falling Star"></div>
+          <h3>Falling Star</h3>
+          <p class="zh-name">星落</p>
+          <p class="meta">OGN-029 · Spell · Fury · Rare</p>
+          <p class="rules">Current errata: Deal 3 to a unit. Deal 3 to a unit. Split or stack (6 to one body). Hits units in base or at a battlefield. This is the answer to Deflect-light 6-might threats and to double 3-drops. Two extra copies complete the 40.</p>
+          <p class="qty-tag">×3 · 2 added to reach 40</p>
+        </article>
+
+        <article class="study-card mind" data-kind="spell">
+          <header><span class="pip cost">2</span><span class="pip might">R</span></header>
+          <div class="art"><img src="assets/smoke-screen.jpg" alt="Smoke Screen"></div>
+          <h3>Smoke Screen</h3>
+          <p class="zh-name">煙幕</p>
+          <p class="meta">OGN-093 · Spell · Mind · Common · Reaction</p>
+          <p class="rules">Give a unit −4 Might this turn, minimum 1. Hide this for Master Yi bodies, Sett, and enemy Darius. Do not spend it on a 3-might unit Hextech Ray already kills.</p>
+          <p class="qty-tag">×1</p>
+        </article>
+
+        <article class="study-card dual" data-kind="spell">
+          <header><span class="pip cost">7</span><span class="pip might">S</span></header>
+          <div class="art"><img src="assets/icathian-rain.jpg" alt="Icathian Rain"></div>
+          <h3>Icathian Rain</h3>
+          <p class="zh-name">艾卡西亞暴雨</p>
+          <p class="meta">OGN-248 · Spell · Fury / Mind · Epic</p>
+          <p class="rules">Errata: Deal 2 to a unit, six times. Split across the board or stack 12 onto one threat. Signature spell. Dual-domain Power. Wait until it actually resets the score, not when you are merely annoyed.</p>
+          <p class="qty-tag">×1</p>
+        </article>
+
+        <article class="study-card mind" data-kind="spell">
+          <header><span class="pip cost">10</span><span class="pip might">S</span></header>
+          <div class="art"><img src="assets/time-warp.jpg" alt="Time Warp"></div>
+          <h3>Time Warp</h3>
+          <p class="zh-name">時間扭曲</p>
+          <p class="meta">OGN-122 · Spell · Mind · Epic</p>
+          <p class="rules">Take a turn after this one. Banish this. Typical cost: 10 Energy and 4 Mind Power. Winning lines: holding two fields at 6 points, or conquering to 7 then Warping into a Hold for 8. Calm-domain Wind Wall / deny spells beat this — ask before you tap out.</p>
+          <p class="qty-tag">×1</p>
+        </article>
+
+        <article class="study-card mind" data-kind="field">
+          <header><span class="pip cost">B</span><span class="pip might">1</span></header>
+          <div class="art"><img src="assets/dreaming-tree.jpg" alt="The Dreaming Tree"></div>
+          <h3>The Dreaming Tree</h3>
+          <p class="zh-name">幻夢之樹</p>
+          <p class="meta">Battlefield</p>
+          <p class="rules">Value lane. Move a unit here, then target it with Stupefy, Cleave, or Retreat to draw. Do not donate this battlefield to a grind deck if you can help it.</p>
+          <p class="qty-tag">×1 battlefield</p>
+        </article>
+
+        <article class="study-card dual" data-kind="field">
+          <header><span class="pip cost">B</span><span class="pip might">1</span></header>
+          <div class="art"><img src="assets/void-gate.jpg" alt="Void Gate"></div>
+          <h3>Void Gate</h3>
+          <p class="zh-name">虛空之門</p>
+          <p class="meta">Battlefield</p>
+          <p class="rules">Your preferred combat lane. Boosts spell damage, so Hextech Ray and Falling Star start deleting real units. Contest this early against other spell decks.</p>
+          <p class="qty-tag">×1 battlefield</p>
+        </article>
+
+        <article class="study-card fury" data-kind="field">
+          <header><span class="pip cost">B</span><span class="pip might">1</span></header>
+          <div class="art"><img src="assets/zaun-warrens.jpg" alt="Zaun Warrens"></div>
+          <h3>Zaun Warrens</h3>
+          <p class="zh-name">祖安地道</p>
+          <p class="meta">Battlefield</p>
+          <p class="rules">Loot filter. Discard a spent 1-cost to find Watcher, Rain, or Warp. Fine to give up if the other two lanes score; do not die holding a loot field while they take both scoring lanes.</p>
+          <p class="qty-tag">×1 battlefield</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="play">
+      <h2>How this deck wins</h2>
+      <p class="zh-h">怎麼用這副牌贏瑞士輪</p>
+      <div class="copy panel">
+        <p>Kai'Sa is not a linear aggro deck and it is not a tap-out control deck. It is a <strong>spell-tempo</strong> deck: cheap Action and Reaction spells keep battlefields empty or skinny, small units convert those empty lanes into points, and then Darius, Watcher, or Time Warp ends the game before the opponent rebuilds.</p>
+        <p>Score to 8. You <strong>Hold</strong> during your beginning phase if you already control a battlefield, and you <strong>Conquer</strong> when you take one you have not scored this turn. The final point has extra rules: a Hold can win, but a Conquer for the last point only counts if you have scored every battlefield this turn. If you Conquer for point 8 without having scored the other field, you draw a card instead of winning. Learn that rule cold before Taiwan. Time Warp exists to turn a 6- or 7-point board into a Hold win they never get to answer.</p>
+
+        <h3>Legend first</h3>
+        <p>Exhaust Kai'Sa, Daughter of the Void whenever you would otherwise recycle a rune to pay a spell's Power. That is almost every Hextech Ray, Falling Star, and Icathian Rain. If you forget the legend, you deramp and the deck feels clunky. If you remember it, you cast a spell most turns and still channel runes for tomorrow.</p>
+
+        <h3>Turn shape</h3>
+        <ol>
+          <li><strong>Opener.</strong> Keep Ravenbloom Student, Hextech Ray, Lecturing Yordle, or Retreat. A 2-drop plus a 1-cost spell is the real keep. Ship Time Warp back unless you already know they are a ramp deck.</li>
+          <li><strong>Lanes, not hero-trading.</strong> Put a small unit on an empty battlefield and score. Do not pick a 4-vs-4 fight without a spell in reserve.</li>
+          <li><strong>Survivor loop.</strong> Play Kai'Sa, Survivor Accelerated when a lane is winnable. Conquer, draw. If they threaten the Hold, Retreat her, channel a rune, recast later. One Survivor doing this twice is more points than slamming Darius into a ready blocker.</li>
+          <li><strong>Midgame Legion.</strong> Spell, then Noxus Hopeful for 2. Or spell, then Darius to ready a 7-might attacker. Always count "is this my second card?" before you play the 5-drop.</li>
+          <li><strong>Close.</strong> Accelerated Watcher shrinks their board and takes a field. Second attacker takes the other. Or Warp at 6 holding two, or at 7 holding one. Icathian Rain is for the turn their board is actually wider than your pings.</li>
+        </ol>
+
+        <h3>Energy discipline</h3>
+        <p>Leave Energy up on their turn. This list is full of Action and Reaction cards that only matter in showdowns. Tapping out to deploy a 4-might unit into an open lane is often correct; tapping out when they have a ready attacker on your field is how Kai'Sa loses to Master Yi and Annie.</p>
+
+        <h3>Mulligan</h3>
+        <ul>
+          <li>Always: Student, Ray, Yordle, Retreat, a rune-friendly 2-drop.</li>
+          <li>On the play vs unknown: keep one interaction and one unit. Do not keep Watcher + Warp + Rain.</li>
+          <li>On the draw vs known aggro: Ray, Stupefy, Smoke Screen, Student.</li>
+          <li>Vs known slow decks: you may keep Warp if the rest of the hand can live until 10 Energy.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="matchups">
+      <h2>Origins matchups to respect</h2>
+      <p class="zh-h">起源環境要小心的對局</p>
+      <p class="copy">Taiwan's first month is Origins-legal product. The same legends that ran western and CN Origins events will show up at store-level Summoner Skirmish and at the September Regional Qualifier. Kai'Sa is a premier Origins legend. It still has losing and coin-flip pairings. Play those, do not ignore them.</p>
+      <div class="panel" style="overflow:auto">
+        <table>
+          <thead>
+            <tr><th>Legend</th><th>繁中</th><th>Role</th><th>Plan</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="danger">Master Yi</span></td>
+              <td>易大師</td>
+              <td>Worst regular pairing. Wuju tempo-defense out-sizes cheap pings and contests both lanes.</td>
+              <td>Do not empty both fields. Smoke Screen and Falling Star are for his mid-might attackers, not for their 2-drops. Watcher shrink is the clean swing. If they sit behind Tank units, Cleave a second attacker instead of Ray-ing into Tank. Never Time Warp into a board they will Hold-kill; Warp only when a Hold wins on the extra turn.</td>
+            </tr>
+            <tr>
+              <td><span class="danger">Viktor</span></td>
+              <td>維克特</td>
+              <td>Gear grind. Recycles value, clogs lanes with bodies your 3-damage spells do not finish.</td>
+              <td>Kill the gear plan early if you own Thermo Beam in the board. Otherwise punch points now. Do not play a long game of 1-for-1s. Hopeful and Accelerated Survivor force him off fields. Rain is actually good here if he swarms small units. Side in extra Falling Star / Smoke if you have them.</td>
+            </tr>
+            <tr>
+              <td><span class="mid">Annie</span></td>
+              <td>安妮</td>
+              <td>Explosive early. Can race you before Watcher comes online.</td>
+              <td>Keep Ray and Stupefy. Block her first conquer. Do not greed Dreaming Tree draws on turn two. A clunky opener vs Annie is a lost match. After you stabilize, you are favored — she runs out of gas, you do not.</td>
+            </tr>
+            <tr>
+              <td><span class="mid">Kai'Sa mirror</span></td>
+              <td>卡莎鏡像</td>
+              <td>Same tools. Sequencing and Survivor timing decide it.</td>
+              <td>Void Gate is the most important battlefield. Do not be the first to tap out of Reactions. Winner is whoever gets a ready Survivor conquer plus a card, then Retreats out of the swing-back. Hold Smoke Screen for their Darius or Watcher, not their Sentry.</td>
+            </tr>
+            <tr>
+              <td><span class="mid">Darius / Sett</span></td>
+              <td>達瑞斯 / 賽特</td>
+              <td>Fat midrange. Sett walls; enemy Darius uses your own Legion trick.</td>
+              <td>Falling Star stacked (6) or Smoke Screen −4. Do not Cleave into a bigger ready body. Watcher is excellent. You are generally favored if you do not donate free conquers on turn two.</td>
+            </tr>
+            <tr>
+              <td><span class="ok">Jinx, Lee Sin, Ahri, Volibear</span></td>
+              <td>吉茵珂絲、李星、阿璃、弗力貝爾</td>
+              <td>Origins data had them below the S-tier pair. Still capable of stealing games.</td>
+              <td>Play the main plan. Vs Jinx, respect wide boards and save Rain. Vs Lee Sin, do not walk Survivor into a ready monk without a Reaction. Vs Ahri, they can score without a clean Hold — race. Vs Volibear, Warp is live if they spend the first four turns ramping.</td>
+            </tr>
+            <tr>
+              <td><span class="mid">Miss Fortune / Teemo</span></td>
+              <td>好運姐 / 提摩</td>
+              <td>Trick and tempo. Less common, high variance.</td>
+              <td>Do not overcommit into hidden combat tricks. Keep one Reaction. Take points when lanes are truly empty.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warn">
+        <strong>Store-level warning.</strong> First-month Taiwan events will still have a lot of precon Jinx / Viktor / Lee Sin and Proving Grounds Annie / Lux / Yi / Garen. Those are winnable if you play real constructed. The players who will knock you out of a Regional Qualifier are Yi, Viktor, Annie, the mirror, and anyone who knows the final-point rule better than you.
+      </div>
+    </section>
+
+    <section id="taiwan">
+      <h2>First Taiwan tournaments</h2>
+      <p class="zh-h">第一次打台灣賽要帶什麼、先搞懂什麼</p>
+      <div class="grid-2">
+        <article class="panel copy">
+          <h3>The calendar in front of you</h3>
+          <ul class="timeline">
+            <li><strong>7 Aug 2026</strong> — Traditional Chinese Origins street date (GLORIOUS SOUL). You are two weeks into that.</li>
+            <li><strong>Now → mid-Sep</strong> — store Summoner Skirmish events. This is where you learn the physical game, not just TTS.</li>
+            <li><strong>19–20 Sep 2026</strong> — first Traditional Chinese Regional Qualifier, 台北矽谷國際會議中心 B2, New Taipei. 512 players. Origins constructed.</li>
+            <li><strong>9–11 Oct 2026</strong> — Macau RQ at ASCC, Venetian Expo. Same size.</li>
+          </ul>
+          <p>English and Traditional Chinese cards are mix-legal, same idea as other TCGs. Bring whichever printings you have. Judges in Taiwan will still expect you to know what your English cards do in Chinese if an opponent asks.</p>
+        </article>
+        <article class="panel copy">
+          <h3>What to have in the bag</h3>
+          <div class="check-grid">
+            <label class="check"><input type="checkbox"> Legal deck: legend + chosen champion + 40 + 3 battlefields + 12 runes</label>
+            <label class="check"><input type="checkbox"> Sideboard (up to the event cap, usually 8) in a marked section</label>
+            <label class="check"><input type="checkbox"> Identical opaque sleeves, no extras mixed in, no damaged faces</label>
+            <label class="check"><input type="checkbox"> Spare sleeves, deckbox, token dice for points and damage</label>
+            <label class="check"><input type="checkbox"> Playmat, life/score pad, pen, printed decklist</label>
+            <label class="check"><input type="checkbox"> Photo ID for the Regional Qualifier</label>
+            <label class="check"><input type="checkbox"> Water, snack, power bank — 512-player days are long</label>
+            <label class="check"><input type="checkbox"> This PDF or a one-page cheat sheet of Chinese names</label>
+          </div>
+        </article>
+      </div>
+
+      <div class="panel copy" style="margin-top:16px">
+        <h3>Recommended sideboard for Origins stores</h3>
+        <ul>
+          <li>2 × Smoke Screen — Yi, Sett, enemy Darius, Watcher fights.</li>
+          <li>2 × extra interaction vs gear / artifacts if you own Thermo Beam (Viktor).</li>
+          <li>1–2 × Void Seeker — cantrip 4 damage at a battlefield; extra gas in the mirror.</li>
+          <li>1 × Time Warp — vs ramp and slow control.</li>
+          <li>1 × Mega-Mech or Sprite Mother — vs pure aggro when you need a ready body.</li>
+          <li>1 × Unchecked Power or extra Falling Star — vs Deflect and fat might.</li>
+        </ul>
+        <p>You do not need a perfect 8 before your first Skirmish. You do need the 40 to be legal and sleeved.</p>
+      </div>
+    </section>
+
+    <section id="learn">
+      <h2>Learn this before you sit down</h2>
+      <p class="zh-h">賽前必練 · 規則比記錯卡還容易把你淘汰</p>
+      <div class="grid-2">
+        <article class="panel copy">
+          <h3>Rules that decide matches</h3>
+          <ol>
+            <li>Hold vs Conquer, and the <strong>final point</strong> exception.</li>
+            <li><strong>Action</strong> (your turn or showdowns) vs <strong>Reaction</strong> (almost any time, including before things resolve).</li>
+            <li><strong>Accelerate</strong> is +1 Energy and +1 matching Power, optional, paid as you play the unit.</li>
+            <li><strong>Power</strong> is recycling a rune, not exhausting it. Exhausting pays Energy. Kai'Sa's legend pays one spell Power without recycling.</li>
+            <li><strong>Legion, Deathknell, Tank, Deflect, Assault</strong> — say them out loud in English and Chinese.</li>
+            <li>Showdown math: might vs might, leftover units, who is ready afterward.</li>
+            <li>You may only score each battlefield once per turn.</li>
+            <li>Marked cards, notes, and slow play are how otherwise good players get warnings.</li>
+          </ol>
+        </article>
+        <article class="panel copy">
+          <h3>Practice plan (do this, then register)</h3>
+          <ol>
+            <li>Goldfish ten opening hands. Write keep/mull.</li>
+            <li>Play the Darius line (1-cost then 5-drop) until it is automatic.</li>
+            <li>Play the Watcher Accelerate line and name which two fields you are taking.</li>
+            <li>Set a board at 6 and at 7 points and practice the Warp win plus the failed-Warp (deny) branch.</li>
+            <li>Play at least one real Skirmish or shop night. Physical sequencing is slower than you think.</li>
+            <li>Read the current Tournament Rules and the Falling Star / Icathian Rain errata. Judges will use the new text.</li>
+          </ol>
+          <p>Community pointers: <a href="https://riftbound.chroniclecore.com/">符文戰場編年史</a> for Taiwan stores and Chinese names; official organized play at playriftbound.com; GLORIOUS SOUL for Traditional Chinese product.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Unofficial fan study guide. Riftbound, Origins, and all related marks are property of Riot Games. Traditional Chinese publishing: GLORIOUS SOUL. Illustrations here are original study art, not official card scans. Built to replace the Hellgate TD prototype in this repo.
+  </footer>
+  <script src="guide.js"></script>
 </body>
 </html>
-

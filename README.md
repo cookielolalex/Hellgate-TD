@@ -1,68 +1,29 @@
-# 3D Tower Defense Game
+# Kai'Sa Origins Tournament Guide (Taiwan)
 
-A mobile-friendly 3D tower defense game built with HTML, CSS, and JavaScript.
+Unofficial Riftbound study site that replaced the Hellgate tower-defense prototype in this repository.
 
-## Features
+Open `index.html` in a browser. The printable packet with original study-card art lives at `pdf/kaisa-origins-taiwan-guide.pdf`.
 
-- **3D Isometric View**: Uses CSS 3D transforms for an immersive 3D experience
-- **Player Character**: Move a humanoid figure around the map
-- **Building System**: Build towers (100 gold) and walls (50 gold) to defend your base
-- **Terrain System**: Hills with exit ramps where monsters spawn
-- **Monster Waves**: Enemies spawn from outside the fog of war and follow paths to your base
-- **Camera Controls**: Pan and zoom controls in the bottom right corner
-- **Fog of War**: Limited visibility that follows the player
-- **Mobile Support**: Touch controls with joystick for movement
+## What is in here
 
-## How to Play
+- Your Fury/Mind **Kai'Sa, Survivor** Origins list as a 40-card registration deck (Chosen Champion counted in the 40)
+- Original study sheets for every card in the paste, plus legend and recommended battlefields
+- How to sequence the deck to win Swiss
+- Origins matchups that actually steal games (Yi, Viktor, Annie, the mirror)
+- A first-event packing list for Taiwan store Skirmishes and the 19–20 Sep 2026 Regional Qualifier in New Taipei
 
-1. **Movement**:
-   - Desktop: Use arrow keys or WASD
-   - Mobile: Use the joystick in the bottom left
+## Deck count
 
-2. **Building**:
-   - Click on a build button (tower or wall) to select it
-   - Click on the map to place the building
-   - Buildings can only be placed on walkable terrain
+The pasted 40-card list is 38 named copies. This guide adds two **Falling Star** to make a legal 40. You still register a legend, three battlefields, and twelve runes separately.
 
-3. **Camera**:
-   - Use the camera controls in the bottom right to pan and zoom
-   - Buttons: ↑ ↓ ← → for panning, + - for zoom
+## Legal
 
-4. **Objective**:
-   - Defend your home base (center) from waves of monsters
-   - Monsters spawn from hills and follow paths to your base
-   - Towers automatically attack nearby monsters
-   - Earn gold by defeating monsters
-   - Survive as many waves as possible!
+Fan study material. Riftbound and Origins are Riot Games properties. Traditional Chinese product is published by GLORIOUS SOUL. The illustrations are original study art, not official card scans.
 
-## Game Mechanics
+## Run locally
 
-- **Gold**: Start with 500 gold, earn more by defeating monsters
-- **Health**: Base starts with 100 health, loses 10 per monster that reaches it
-- **Waves**: Each wave spawns more monsters
-- **Towers**: Attack monsters within range, cost 100 gold
-- **Walls**: Block monster paths, cost 50 gold
+No build step. Open `index.html`, or from this folder:
 
-## Running the Game
-
-Simply open `index.html` in a web browser. No build process or dependencies required!
-
-## Browser Compatibility
-
-Works best in modern browsers that support CSS 3D transforms:
-- Chrome/Edge (recommended)
-- Firefox
-- Safari
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Controls Summary
-
-| Action | Desktop | Mobile |
-|--------|---------|--------|
-| Move | Arrow Keys / WASD | Joystick |
-| Build Tower | Click build button + map | Tap build button + map |
-| Build Wall | Click build button + map | Tap build button + map |
-| Camera | Camera buttons | Camera buttons |
-
-Enjoy defending your base!
-
+```bash
+python3 -m http.server 8080
+```
