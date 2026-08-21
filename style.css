@@ -296,10 +296,30 @@ td:nth-child(4) { word-break: keep-all; }
   color: var(--gold);
 }
 
-.card-grid {
+.official-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 18px 14px;
+  align-items: start;
+}
+.official-card {
+  margin: 0;
+}
+.official-card.landscape {
+  grid-column: span 2;
+}
+.official-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+  background: #120c18;
+}
+.official-card figcaption {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--gold);
 }
 
 .study-card {
@@ -481,10 +501,10 @@ footer {
   .hero { min-height: 100vh; break-after: page; }
   section { padding-top: 20px; }
   #cards, #turns, #matchups, #taiwan { break-before: page; }
-  .study-card { break-inside: avoid; }
-  .card-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .study-card h3 { font-size: 1rem; }
-  .rules { font-size: 0.8rem; }
+  .official-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .official-card { break-inside: avoid; }
+  .official-card.landscape { grid-column: span 2; }
+  .official-card figcaption { font-size: 0.7rem; }
   main { padding: 0 0 24px; }
   .hero-copy { padding: 36px 24px 40px; }
 }

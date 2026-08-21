@@ -1,5 +1,5 @@
 const filters = document.querySelectorAll(".filter");
-const cards = document.querySelectorAll(".study-card");
+const cards = document.querySelectorAll("[data-kind]");
 const nav = document.getElementById("site-nav");
 const menuBtn = document.querySelector("[data-menu]");
 
